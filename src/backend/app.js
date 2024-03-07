@@ -1,16 +1,19 @@
-const express = require("express");
+import express from "express";
+import path from 'path';
+import cors from 'cors';
+import { fileURLToPath } from 'url';
 const app = express();
 const router = express.Router();
-const path = require("path");
+import { dirname } from "path";
 
-const mealsRouter = require("./api/meals");
-const buildPath = path.join(__dirname, "../../dist");
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = dirname(__filename);
+
+import mealsRouter from "./api/meals.js";
 const port = process.env.PORT || 3000;
-const cors = require("cors");
 
 // For week4 no need to look into this!
 // Serve the built client html
-app.use(express.static(buildPath));
 
 // Parse URL-encoded bodies (as sent by HTML forms)
 app.use(express.urlencoded({ extended: true }));
@@ -19,7 +22,11 @@ app.use(express.json());
 
 app.use(cors());
 
-router.use("/meals", mealsRouter);
+//router.use("/meals", mealsRouter);
+
+app.get("/users/sanaz" ,(req,res)=>{
+    res.send('hello Mahmod')
+})
 
 if (process.env.API_PATH) {
   app.use(process.env.API_PATH, router);
@@ -32,4 +39,4 @@ app.use("*", (req, res) => {
   res.sendFile(path.join(`${buildPath}/index.html`));
 });
 
-module.exports = app;
+export default app;

@@ -1,15 +1,15 @@
-const express = require("express");
-const router = express.Router();
-const knex = require("../database");
+import express from "express";
+const mealsRouter = express.Router();
+import knex from "../database.js";
 
-router.get("/", async (request, response) => {
+mealsRouter.get("/", async (request, response) => {
   try {
     // knex syntax for selecting things. Look up the documentation for knex for further info
-    const titles = await knex("meals").select("title");
+    const titles = await knex("Meals");
     response.json(titles);
   } catch (error) {
     throw error;
   }
 });
 
-module.exports = router;
+export default mealsRouter;
