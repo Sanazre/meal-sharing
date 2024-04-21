@@ -122,9 +122,3 @@ app.use("*", (req, res) => {
   res.json({ message: "Route not found" });
 });
 module.exports = app;
-
-
-
-
-
-11:14
