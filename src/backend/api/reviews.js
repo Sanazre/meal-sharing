@@ -1,6 +1,6 @@
-const express = require("express");
+import express from "express";
 const router = express.Router();
-const knex = require("../database");
+import knex from "../database.js";
 //-------------- WEEK3 Reviews Routs -----------------
 //Returns all reviews. (api/reviews/)
 router.get("/", async (req, res) => {
@@ -103,4 +103,4 @@ router.delete("/:id", async (req, res) => {
     res.status(500).json({ error: "Internal server error" });
   }
 });
-module.exports = router;
+export default router;

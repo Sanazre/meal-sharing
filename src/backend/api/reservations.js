@@ -1,6 +1,6 @@
-const express = require("express");
+import express from "express";
 const router = express.Router();
-const knex = require("../database");
+import knex from "../database.js";
 //-------------------------------------------
 // GET/api/reservations  - Returns all reservations (http://localhost:5000/api/reservations/)
 router.get("/", async (req, res) => {
@@ -82,4 +82,4 @@ router.delete("/:id", async (req, res) => {
     res.status(500).json({ error: "Server Error: Not able to fetch data" });
   }
 });
-module.exports = router;
+export default router;

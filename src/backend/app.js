@@ -1,15 +1,15 @@
-const express = require("express");
+import express from "express";
 const app = express();
 const router = express.Router();
-const path = require("path");
-const mealsRouter = require("./api/meals");
-const reservationsRouter = require("./api/reservations");
-const reviewsRouter = require("./api/reviews");
-const buildPath = path.join(__dirname, "../../dist");
+import path from "path";
+import mealsRouter from "./api/meals.js";
+import reservationsRouter from "./api/reservations.js";
+import reviewsRouter from "./api/reviews.js";
+const buildPath = "../../dist";
 const port = process.env.PORT || 3000;
-const cors = require("cors");
+import cors from "cors";
 //to get connected to the database
-const knex = require("./database");
+import knex from "./database.js";
 // For week4 no need to look into this!
 // Serve the built client html
 app.use(express.static(buildPath));
@@ -123,4 +123,4 @@ if (process.env.API_PATH) {
 app.use("*", (req, res) => {
   res.json({ message: "Route not found" });
 });
-module.exports = app;
+export default app;
