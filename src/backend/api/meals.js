@@ -1,9 +1,10 @@
 import express from "express";
-const app = express();
+//to get connected to the database
+import knex from "../database.js";
 const router = express.Router();
 //_____________________ WEEKK1 ___________________________
 const todayDate = new Date();
-app.get("/future-meals", async (req, res) => {
+router.get("/future-meals", async (req, res) => {
   try {
     const futureMeals = await knex
       .select("*")
@@ -21,11 +22,11 @@ app.get("/future-meals", async (req, res) => {
   }
 });
 //past-meals  Respond with all meals in the past (relative to the meal_time datetime)
-app.get("/past-meals", async (req, res) => {
+router.get("/past-meals", async (req, res) => {
   try {
     const pastMeals = await knex
       .select("*")
-      .from("meal")
+      .from("Meal")
       .where("meal_time", "<", todayDate);
     if (pastMeals.length > 0) {
       res.status(200).json(pastMeals);
@@ -39,11 +40,12 @@ app.get("/past-meals", async (req, res) => {
   }
 });
 //all-meals Respond with all meals sorted by ID - respond with a collection of meals, meaning an array of objects.
-app.get("/all-meals", async (req, res) => {
+router.get("/", async (req, res) => {
   try {
-    const allMeals = await knex.select("*").from("meal").orderBy("id"); // Sorting by ID
+    const allMeals = await knex.select("*").from("Meal").orderBy("id"); // Sorting by ID
     if (allMeals.length > 0) {
       res.status(200).json(allMeals);
+      return
     }
     res.status(404).send("The data you have requested for meals is not found");
   } catch (err) {
@@ -52,7 +54,7 @@ app.get("/all-meals", async (req, res) => {
   }
 });
 //first-meal  Respond with the first meal (meaning with the minimum id) -respond with a single meal, meaning an object
-app.get("/first-meal", async (req, res) => {
+router.get("/first-meal", async (req, res) => {
   try {
     const firstMeal = await knex
       .select("*")
@@ -73,7 +75,7 @@ app.get("/first-meal", async (req, res) => {
   }
 });
 //last-meal Respond with the last meal (meaning with the maximum id)- respond with a single meal, meaning an object
-app.get("/last-meal", async (req, res) => {
+router.get("/last-meal", async (req, res) => {
   try {
     const lastMeal = await knex
       .select("*")
@@ -93,8 +95,5 @@ app.get("/last-meal", async (req, res) => {
     res.status(500).send("Error: Not able to fetch data for meals");
   }
 });
-// for the frontend. Will first be covered in the react class
-app.use("*", (req, res) => {
-  res.json({ message: "Route not found" });
-});
-export default app;
+
+export default router;
