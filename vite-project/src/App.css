@@ -1,0 +1,20 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+.welcome {
+  color: rgb(139, 1, 1);
+  /* background-image: radial-gradient(circle, rgb(255, 114, 114) 0%, rgb(255, 255, 107) 100%); */
+  padding: 15px;
+}
+.title {
+  color: rgb(0, 0, 120);
+}
+
+
+
+
+
+
