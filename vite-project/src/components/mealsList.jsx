@@ -8,7 +8,7 @@ function MealsList() {
     fetch(apiurl("/api/meals"))
       .then((response) => response.json())
       .then((data) => {
-        setMeals(data.data);
+        setMeals(data);
         setLoading(false);
       })
       .catch((error) => console.error("Error fetching meals:", error));
