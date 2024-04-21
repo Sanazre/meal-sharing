@@ -10,6 +10,8 @@ const port = process.env.PORT || 3000;
 const cors = require("cors");
 //to get connected to the database
 const knex = require("./database");
+// For week4 no need to look into this!
+// Serve the built client html
 app.use(express.static(buildPath));
 // Parse URL-encoded bodies (as sent by HTML forms)
 app.use(express.urlencoded({ extended: true }));
