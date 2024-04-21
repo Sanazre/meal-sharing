@@ -8,7 +8,7 @@ router.get("/future-meals", async (req, res) => {
   try {
     const futureMeals = await knex
       .select("*")
-      .from("meal")
+      .from("Meal")
       .where("meal_time", ">", todayDate);
     if (futureMeals.lenght > 0) {
       res.status(200).json(futureMeals);
@@ -58,7 +58,7 @@ router.get("/first-meal", async (req, res) => {
   try {
     const firstMeal = await knex
       .select("*")
-      .from("meal")
+      .from("Meal")
       .orderBy("id")
       .limit(1); // Limiting the result to just one meal
     if (firstMeal.length > 0) {
@@ -79,7 +79,7 @@ router.get("/last-meal", async (req, res) => {
   try {
     const lastMeal = await knex
       .select("*")
-      .from("meal")
+      .from("Meal")
       .orderBy("id", "desc")
       .limit(1);
     if (lastMeal.length > 0) {

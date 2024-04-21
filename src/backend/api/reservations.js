@@ -56,7 +56,7 @@ router.put("/:id", async (req, res) => {
   try {
     const id = req.params.id;
     const updateReservation = req.body;
-    const updatedReservationById = await knex("meal")
+    const updatedReservationById = await knex("Meal")
       .where("id", id)
       .update(updateReservation);
     if (updatedReservationById) {
@@ -72,7 +72,7 @@ router.put("/:id", async (req, res) => {
 router.delete("/:id", async (req, res) => {
   try {
     const id = req.params.id;
-    const deletedReservationById = await knex("meal").where("id", id).del();
+    const deletedReservationById = await knex("Meal").where("id", id).del();
     if (deletedReservationById) {
       res.json({ message: "The reservationl was deleted successfully" });
     } else {

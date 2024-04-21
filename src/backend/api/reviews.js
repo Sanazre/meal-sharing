@@ -50,7 +50,7 @@ router.get("/:id", async (req, res) => {
         "meal.title AS Meal title",
         "review.description"
       )
-      .from("meal")
+      .from("Meal")
       .join("review", "meal.id", "=", "review.meal_id")
       .where("review.id", "=", id);
     if (reviewById.length > 0) {
