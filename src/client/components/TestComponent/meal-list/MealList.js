@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 import "./mealList.css"; // Import your CSS file
+import Header from "../../header/Header";
 
 const getData = async () => {
   try {
@@ -24,6 +25,8 @@ function MealList() {
     fetchMeals();
   }, []);
   return (
+    <>
+    <Header/>
     <div className="meal-list-container">
       {" "}
       {/* Apply CSS class */}
@@ -36,6 +39,7 @@ function MealList() {
         </div>
       ))}
     </div>
+    </>
   );
 }
 

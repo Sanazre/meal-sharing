@@ -1,0 +1,29 @@
+.header {
+    background-color: #5eb17f; /* Background color */
+    padding: 10px 20px; /* Add some padding */
+    display: flex; /* Flex layout to align items */
+    justify-content: space-between; /* Align items with space between */
+    align-items: center; /* Center items vertically */
+  }
+  
+  .logo {
+    font-size: 24px; /* Logo font size */
+    font-weight: bold; /* Bold font weight */
+    color: #212121; /* Logo text color */
+  }
+  
+  .navbar {
+    display: flex; /* Flex layout to align items */
+  }
+  
+  .navbar a {
+    color: #212121; /* Navlink text color */
+    text-decoration: none; /* Remove default underline */
+    margin-right: 20px; /* Add some margin between links */
+  }
+  
+  .navbar a.active {
+    color: #ffffff; /* Active link text color */
+    font-weight: bold; /* Bold font weight for active link */
+  }
+  
