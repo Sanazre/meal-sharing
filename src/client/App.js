@@ -7,11 +7,11 @@ import Home from "./components/home/Home";
 function App() {
   return (
     <Router>
-      <Route exact path="/home">
-        <Home/>
+      <Route exact path="/">
+        <Home />
       </Route>
       <Route exact path="/meals">
-        <MealList/>
+        <MealList />
       </Route>
       <Route exact path="/test-component">
         <TestComponent></TestComponent>
