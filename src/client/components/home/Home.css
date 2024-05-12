@@ -1,0 +1,10 @@
+img {
+  height: 95vh;
+  background-image: url("../../assets/images/meal.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: multiply;
+  color: #fff;
+  text-align: center;
+}

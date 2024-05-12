@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 import "./mealList.css"; // Import your CSS file
-import Header from "../../header/Header";
+import Header from "../../header/Header.js";
 
 const getData = async () => {
   try {

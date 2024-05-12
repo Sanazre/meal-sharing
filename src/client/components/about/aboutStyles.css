@@ -1,0 +1,15 @@
+/* aboutStyles.css */
+
+.about-container {
+  display: flex;
+  justify-content: center; /* Horizontally center the content */
+  align-items: center; /* Vertically center the content */
+  height: 100vh; /* Set the height of the container to 100% of the viewport height */
+  padding: 20px;
+  background-color: #b2d0ee; /* Light background color */
+}
+
+.about-content {
+  max-width: 600px; /* Set a maximum width for better readability */
+  text-align: center; /* Center-align the text within the container */
+}
