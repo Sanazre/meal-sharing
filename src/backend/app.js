@@ -1,13 +1,13 @@
+import reservationsRouter from "./api/reservations.js";
+import path from "path";
+import cors from "cors";
 import express from "express";
+import reviewsRouter from "./api/reviews.js";
+import mealsRouter from "./api/meals.js";
 const app = express();
 const router = express.Router();
-import path from "path";
-import mealsRouter from "./api/meals.js";
-import reservationsRouter from "./api/reservations.js";
-import reviewsRouter from "./api/reviews.js";
 const buildPath = "../../dist";
 const port = process.env.PORT || 3000;
-import cors from "cors";
 // For week4 no need to look into this!
 // Serve the built client html
 app.use(express.static(buildPath));

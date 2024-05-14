@@ -2,6 +2,7 @@
   "name": "meal-sharing",
   "version": "1.0.0",
   "description": "Website for sharing meals",
+  "type": "module",
   "engines": {
     "node": "8.11.1"
   },
